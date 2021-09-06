@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "my_task",
+    "slug": "my_task",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "my_task"
+}
