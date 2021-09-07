@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity,Button } from "react-native";
 import {
   GoogleSignin,
   GoogleSigninButton,
@@ -50,6 +50,18 @@ const Home = (props) => {
       }
     }
   };
+  const signOut = async () => {
+    try {
+      const userInfo =  await GoogleSignin.signOut();
+      console.log('logout',userInfo)
+        setUseremail('');
+        setUsername('');
+        setUserid('');
+        setUserid('') 
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -59,6 +71,11 @@ const Home = (props) => {
         color={GoogleSigninButton.Color.Dark}
         onPress={signIn}
       />
+      <Button
+      title="Sign out"
+      onPress= {signOut}
+    />
+      
       <View style={{marginTop:20,}}>
       <Text style={{textAlign:'center'}}>USER LOGIN DETAIL</Text>
       <Text style={{fontSize:15,textAlign:'center'}}>Username:-{username}</Text>
